@@ -57,7 +57,7 @@ export const postJob = cathAsyncError(async(req,res,next)=>{
 export const getmyJobs = cathAsyncError(async(req,res,next)=>{
     const {role} = req.user; 
     if (role === "job Seeker") {
-        return next( new ErrorHandler("🙅🙅Job seeker is not allowed to create job", 400));
+        return next( new ErrorHandler("🙅🙅Job seeker is not allowed to access this resources", 400));
       }
       const myjobs = await Job.find({postedBy:req.user._id});
       res.status(200).json({
