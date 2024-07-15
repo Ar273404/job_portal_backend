@@ -67,7 +67,7 @@ export const postapplication = cathAsyncError(
     const {resume} = req.files;
     console.log(resume);
 
-    const allowedFormats = ["image/png","image/jpg","image/webp"];
+    const allowedFormats = ["image/png","image/jpeg","image/webp"];
     
     if(!allowedFormats.includes(resume.mimetype))
     {
