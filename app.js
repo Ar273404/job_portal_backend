@@ -14,8 +14,7 @@ const app = express();
 
 dotenv.config({path:'./config/config.env'});
 
-// Serve static files from the 'static' directory
-app.use(express.static(path.join(process.cwd(), 'static')));
+
 
 // Define a route for '/'
 app.get('/', (req, res) => {
