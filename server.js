@@ -8,7 +8,7 @@ cloudinary.v2.config({
   api_secret: process.env.CLOUDINARY_CLIENT_SECRET,
 });
 
-// Listen on the port specified by the environment variable
+// Use environment variable for port
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
