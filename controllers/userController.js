@@ -49,13 +49,18 @@ export const login = cathAsyncError(async(req,res,next)=>{
 })
 
 export const logout = cathAsyncError(async(req,res,next)=>{
-    res.status(201).cookie("token", "", {
-      httpOnly: true,
-      expires:new Date(Date.now()),
-    }).json({
-        succuss:true,
-        message:"User logged out successfully!"
-    })
+    res
+      .status(201)
+      .cookie("token", "", {
+        httpOnly: true,
+        expires: new Date(Date.now()),
+        secure: true,
+        sameSite: "None",
+      })
+      .json({
+        succuss: true,
+        message: "User logged out successfully!",
+      });
 })
 
 export const getUser = cathAsyncError((req,res,next)=>{
