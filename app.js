@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.use(cors({
     origin:[process.env.FRONTED_URL],
-    methods:['GET','POST','DELETE','PUT'],
+    methods:['GET','POST','DELETE','PUT','OPTIONS'],
     credentials:true,
 }));
 app.use(cookieParser());

@@ -5,6 +5,7 @@ import { sendToken } from "../utils/jwtToken.js";
 
 export const register=cathAsyncError(async(req,res,next)=>{
  const {name,email,phone,role,password} = req.body;
+ console.log(req.body);
  if(!name || !email || !phone || !role || !password)
  {
     return next(new ErrorHandler("🙏 🙏 Please provide all details of form!"));
@@ -27,12 +28,13 @@ export const register=cathAsyncError(async(req,res,next)=>{
 
 export const login = cathAsyncError(async(req,res,next)=>{
    const {email,password,role} = req.body;
+   console.log(req.body)
    if(!email || !password || !role)
    {
     return next(new ErrorHandler("Please Provide email,password and role.",400))
    }
    const user = await User.findOne({email}).select("+password");
-
+  console.log(user);
    if(!user){
       return next(new ErrorHandler("Invalid Email or Password",400));
    }
